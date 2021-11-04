@@ -2,12 +2,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Playlists</h1>
+    <h1>Playlists</h1>
 
-<a href='/playlists/new'>New Playlist</a>
+    <a href='/playlists/new'>New Playlist</a>
 
-{% for playlist in playlists %}
-    <h2><a href='/playlists/{{ playlist._id }}'>{{ playlist.title }}</a></h2>
-    <small>{{ playlist.description }}</small>
-{% endfor %}
+
+    <div class='row'>
+        {% for playlist in playlists %}
+            <div class='col-md-3 card border-primary mb-3' style="margin:10px; min-height:100px;">
+                <h2><a href='/playlists/{{ playlist._id }}'>{{ playlist.title }}</a></h2>
+                <p>{{ playlist.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
